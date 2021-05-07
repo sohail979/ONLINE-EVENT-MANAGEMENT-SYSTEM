@@ -1,0 +1,89 @@
+public class Confirm
+{
+void main()
+{
+ Label l1,l2,l3,l4,l5,l6,l7;
+ Button b1,b2,b3;
+ TextField t2,t4,t5,t6,t10,t12;
+ Frame f=new Frame();
+l1=new Label("Welcome To Confirmation of Payment Module");
+l2=new Label("Name on Card");
+l3=new Label("Payment Sucessfull");
+l4=new Label("ATM No");
+l5=new Label("Exp - Date");
+l6=new Label("CVV");
+l7=new Label("Fields are INCORRECT");
+b1=new Button("Logout");
+b2=new Button("Confirm Payment");
+t2=new TextField();
+t4=new TextField();
+t5=new TextField();
+t6=new TextField();
+f.addWindowListener(new WindowAdapter(){
+ @Override
+ public void windowClosing(WindowEvent win)
+ {
+ System.exit(0);
+ }
+ });
+f.setSize(1000, 500);
+f.setBackground(Color.gray);
+f.setLayout(null);
+l1.setBounds(100,60,300,30);
+l2.setBounds(100,130,150,30);
+l3.setBounds(150,290,190,30);
+l4.setBounds(100,160,200,30);
+l5.setBounds(100,190,200,30);
+l6.setBounds(100,220,200,30);
+l7.setBounds(100,290,200,30);
+b1.setBounds(600,290,100,30);
+b2.setBounds(360,290,140,30);
+t2.setBounds(300,130,190,30);
+t4.setBounds(300,160,190,30);
+t5.setBounds(300,190,190,30);
+t6.setBounds(300,220,190,30);
+f.add(l1);
+f.add(l2);
+f.add(l4);
+f.add(l5);
+f.add(l6);
+f.add(b1);
+f.add(b2);
+f.add(t2);
+f.add(t4);
+f.add(t5);
+f.add(t6);
+f.setVisible(true);
+b2.addActionListener(new ActionListener() {
+ public void actionPerformed(ActionEvent e)
+ {
+ String a = t2.getText();
+ String b = t4.getText();
+ String c = t5.getText();
+ String d = t6.getText();
+
+
+ if(a.equals("TOOLS") && b.equals("123456789") && c.equals("11/22") && d.equals("111"))
+ {
+ System.out.println("Payment Sucessfull");
+ f.add(l3);
+ }
+
+ else
+ {
+
+ System.out.println("Fields are INCORRECT");
+ f.add(l7);
+ }
+ }
+ });
+b1.addActionListener(new ActionListener() {
+ public void actionPerformed(ActionEvent e)
+ {
+
+ f.setVisible(false);
+ System.exit(0);
+ }
+ });
+}
+}
